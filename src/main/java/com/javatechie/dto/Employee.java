@@ -1,6 +1,7 @@
 package com.javatechie.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.javatechie.validation.ValidateEmployeeType;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -28,5 +29,6 @@ public class Employee {
     private String email;
 
     //custom annotation
+    @ValidateEmployeeType
     private String employeeType; //permanent or vendor or contractual
 }

@@ -1,12 +1,17 @@
 package com.javatechie.validation;
 
-
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
+import javax.validation.Constraint;
+import javax.validation.Payload;
+import java.lang.annotation.*;
 
 @Target({ElementType.FIELD, ElementType.PARAMETER})
 @Retention(RetentionPolicy.RUNTIME)
+@Documented
+@Constraint(validatedBy = EmployeeTypeValidator.class)
 public @interface ValidateEmployeeType {
+    public String message() default "Invalid Employee Type. Should be either Permanent or Vendor.";
+
+    Class<?>[] groups() default {};
+
+    Class<? extends Payload>[] payload() default {};
 }
